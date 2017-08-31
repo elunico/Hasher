@@ -33,6 +33,7 @@ public class MD5ButtonHandler implements EventHandler<ActionEvent> {
         } else {
             out.setText(org.apache.commons.codec.digest.DigestUtils.md5Hex(text));
         }
+        in.requestFocus();
 
     }
 

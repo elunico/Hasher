@@ -33,6 +33,7 @@ public class SHA1ButtonHandler implements EventHandler<ActionEvent> {
         } else {
             out.setText(org.apache.commons.codec.digest.DigestUtils.sha1Hex(text));
         }
+        in.requestFocus();
 
 
     }
