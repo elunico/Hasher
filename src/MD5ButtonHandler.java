@@ -26,11 +26,14 @@ public class MD5ButtonHandler implements EventHandler<ActionEvent> {
             String[] strings = text.split("\n");
             out.setText("");
             for (String string : strings) {
-                out.setText(out.getText() + "MD5 of " + string + "\n");
+                out.setText(out.getText() + "MD5 of " + string + ": " +
+                            org.apache.commons.codec.digest.DigestUtils.md5Hex(string) +
+                            "\n");
             }
         } else {
-            out.setText("This is the MD5 Hash of " + text);
+            out.setText(org.apache.commons.codec.digest.DigestUtils.md5Hex(text));
         }
 
     }
+
 }

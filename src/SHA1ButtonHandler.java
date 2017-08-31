@@ -26,10 +26,12 @@ public class SHA1ButtonHandler implements EventHandler<ActionEvent> {
             String[] strings = text.split("\n");
             out.setText("");
             for (String string : strings) {
-                out.setText(out.getText() + "SHA1 of " + string + "\n");
+                out.setText(out.getText() + "SHA1 of " + string + ": " +
+                            org.apache.commons.codec.digest.DigestUtils.sha1Hex(string) +
+                            "\n");
             }
         } else {
-            out.setText("This is the SHA1 Hash of " + text);
+            out.setText(org.apache.commons.codec.digest.DigestUtils.sha1Hex(text));
         }
 
 
