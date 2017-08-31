@@ -3,6 +3,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 
+import static org.apache.commons.codec.digest.DigestUtils.md5Hex;
+
 /**
  * @author Thomas Povinelli
  * Created 2017-Aug-30
@@ -26,14 +28,14 @@ public class MD5ButtonHandler implements EventHandler<ActionEvent> {
             String[] strings = text.split("\n");
             out.setText("");
             for (String string : strings) {
-                out.setText(out.getText() + "MD5 of " + string + ": " +
-                            org.apache.commons.codec.digest.DigestUtils.md5Hex(string) +
-                            "\n");
+                out.setText(out.getText() +
+                            md5Hex(string) + "\n");
             }
         } else {
-            out.setText(org.apache.commons.codec.digest.DigestUtils.md5Hex(text));
+            out.setText(md5Hex(text));
         }
         in.requestFocus();
+        in.setEditable(true);
 
     }
 
